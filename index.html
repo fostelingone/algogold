@@ -694,6 +694,18 @@ button.cta-primary { font-family: inherit; }
   letter-spacing: -0.01em;
 }
 
+.modal-hint {
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  margin: -16px 0 24px;
+}
+.modal-hint strong {
+  color: #fff;
+  font-weight: 600;
+}
+
 .store-badges {
   display: flex;
   flex-direction: column;
@@ -746,8 +758,37 @@ button.cta-primary { font-family: inherit; }
   .modal-title { font-size: 20px; }
 }
 </style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '839145845915541');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=839145845915541&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=109203192', 'ym');
+    ym(109203192, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109203192" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 </head>
-<body>
 
 <nav class="nav">
   <div class="nav-inner">
@@ -941,6 +982,7 @@ button.cta-primary { font-family: inherit; }
   <div class="modal">
     <button type="button" class="modal-close" aria-label="Close" data-close-modal>×</button>
     <h3 class="modal-title" id="modalTitle">Get the app</h3>
+    <p class="modal-hint">Download the <strong>Elirox</strong> app and select the ready-made <strong>DCA strategy for XAU/USD</strong>.</p>
     <div class="store-badges">
       <a href="https://click.eliroxlink.com/eJqJpRXx" class="store-badge" target="_blank" rel="noopener">
         <span class="store-badge-icon">
@@ -983,6 +1025,8 @@ button.cta-primary { font-family: inherit; }
     document.body.style.overflow = 'hidden';
     var firstLink = modal.querySelector('.store-badge');
     if (firstLink) firstLink.focus();
+    if (typeof fbq === 'function') fbq('track', 'Lead');
+    if (typeof ym === 'function') ym(109203192, 'reachGoal', 'lead_modal_open');
   }
   function close() {
     modal.classList.remove('is-open');
@@ -993,6 +1037,17 @@ button.cta-primary { font-family: inherit; }
 
   openers.forEach(function(btn) { btn.addEventListener('click', open); });
   closers.forEach(function(btn) { btn.addEventListener('click', close); });
+  modal.querySelectorAll('.store-badge').forEach(function(badge) {
+    badge.addEventListener('click', function() {
+      var store = badge.querySelector('.store-badge-large');
+      if (typeof fbq === 'function') {
+        fbq('track', 'InitiateCheckout', { content_name: store ? store.textContent : 'Store' });
+      }
+      if (typeof ym === 'function') {
+        ym(109203192, 'reachGoal', 'store_click', { store: store ? store.textContent : 'Store' });
+      }
+    });
+  });
   modal.addEventListener('click', function(e) {
     if (e.target === modal) close();
   });
