@@ -11,8 +11,25 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1088467133758134');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1088467133758134&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
 
-<script src="https://api.tgtrack.ru/API/landing_script/v1/?linkID=2c8b4e97816150&type=fb&fbpxid=1088467133758134" type="text/javascript" defer></script>
+    <script src="https://api.tgtrack.ru/API/landing_script/v1/?linkID=2c8b4e97816150&type=fb&fbpxid=1088467133758134" type="text/javascript" defer></script>
 
     <style>
         :root {
@@ -49,7 +66,6 @@
             transition: background 0.2s ease, color 0.2s ease;
         }
 
-        /* Background image */
         .bg-image {
             position: fixed;
             top: 0;
@@ -60,14 +76,12 @@
             background: url('img/3d8c2f2c82c1c9ef1e27be645cd1aa17.jpg') center center / cover no-repeat;
         }
 
-        /* Container */
         .container {
             max-width: 1280px;
             margin: 0 auto;
             padding: 0 16px;
         }
 
-        /* Header */
         .header-bar {
             position: relative;
             z-index: 10;
@@ -114,7 +128,6 @@
             background: var(--accent-hover);
         }
 
-        /* Main content */
         .main-wrapper {
             position: fixed;
             top: 56px;
@@ -151,7 +164,6 @@
             }
         }
 
-        /* Avatar */
         .avatar-wrapper {
             position: relative;
             display: inline-block;
@@ -166,7 +178,6 @@
             box-shadow: 0 4px 16px var(--shadow-color);
         }
 
-        /* Title */
         .channel-title {
             font-size: 24px;
             font-weight: 600;
@@ -175,7 +186,6 @@
             line-height: 1.3;
         }
 
-        /* Description */
         .channel-description {
             font-size: 15px;
             color: var(--text-secondary);
@@ -183,7 +193,6 @@
             margin-bottom: 32px;
         }
 
-        /* Join button */
         .join-button {
             display: inline-block;
             padding: 14px 48px;
@@ -234,24 +243,19 @@
             transform: translateY(0);
         }
 
-        /* Responsive */
         @media (max-width: 600px) {
             .header {
                 padding: 12px 16px;
             }
-
             .page-card {
                 padding: 36px 24px;
             }
-
             .channel-title {
                 font-size: 20px;
             }
-
             .channel-description {
                 font-size: 14px;
             }
-
             .avatar {
                 width: 100px;
                 height: 100px;
@@ -262,12 +266,10 @@
             .page-card {
                 padding: 28px 20px;
             }
-
             .avatar {
                 width: 90px;
                 height: 90px;
             }
-
             .channel-title {
                 font-size: 18px;
             }
@@ -275,10 +277,8 @@
     </style>
 </head>
 <body>
-    <!-- Background -->
     <div class="bg-image"></div>
 
-    <!-- Header -->
     <div class="header-bar">
     <header class="header container">
         <a href="https://telegram.org/" class="tg-logo">
@@ -294,7 +294,6 @@
     </header>
     </div>
 
-    <!-- Main Content -->
     <div class="main-wrapper">
         <div class="page-card">
             <div class="avatar-wrapper">
